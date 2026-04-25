@@ -1,0 +1,134 @@
+Build a full-stack modern tourism booking website for a private driver service named "Quốc Sách Driver".
+
+Tech stack:
+- Frontend: Next.js (App Router) + TailwindCSS
+- Backend: Node.js API routes (Next.js)
+- Database: Supabase or Firebase (for bookings)
+- Maps: Google Maps API (embed + markers)
+- Deployment ready for Vercel
+
+Main purpose:
+Users can hire a private driver (Quốc Sách) for traveling in Da Nang, Hue, and Hoi An.
+
+---
+
+### 🌍 CORE FEATURES
+
+1. Homepage:
+- Clean modern UI, travel vibe
+- Hero section introducing "Quốc Sách - Private Driver"
+- Quick booking form (date range + destination)
+- Featured destinations
+
+---
+
+2. Map Integration:
+- Integrate Google Maps
+- Show popular tourist places in:
+  - Da Nang
+  - Hue
+  - Hoi An
+- Each location has:
+  - Name
+  - Image
+  - Description
+- Click marker → show info popup
+
+---
+
+3. Booking System:
+- User selects:
+  - Start date
+  - End date
+  - Number of people
+  - Locations to visit
+- Calculate estimated price:
+  - Price per day
+  - Distance factor (Da Nang / Hue / Hoi An)
+- Show total estimated cost
+- Save booking to database
+
+---
+
+4. Tour Builder:
+- Users can:
+  - Create custom itinerary
+  - Select places from map/list
+  - Arrange schedule by day
+- Show preview timeline
+
+---
+
+5. Pricing Logic:
+- Base price per day
+- Extra fee for long distance (Hue higher than Da Nang/Hoi An)
+- Display transparent breakdown
+
+---
+
+6. Multi-language Support:
+- English (default)
+- Vietnamese
+- Korean
+- Language switcher in navbar
+- Use i18n system (like next-intl or simple JSON translations)
+
+---
+
+7. Contact Section:
+Display 4 contact methods:
+- Zalo
+- KakaoTalk
+- Gmail (email link)
+- Facebook
+Each with icons and clickable links
+
+---
+
+8. UI/UX:
+- Mobile responsive
+- Smooth animations (Framer Motion optional)
+- Clean travel theme (blue/green palette)
+- Cards, map section, itinerary builder UI
+
+---
+
+9. Admin (simple):
+- View bookings
+- No authentication needed (simple dashboard page)
+
+---
+
+### 📦 EXTRA FEATURES (if possible)
+- Image gallery of destinations
+- Customer reviews section
+- "Why choose us" section
+
+---
+
+### 📁 STRUCTURE
+- /app (Next.js app router)
+- /components
+- /lib (pricing logic)
+- /data (locations + translations)
+- /api/bookings
+
+---
+
+### 🔑 ENV VARIABLES
+- Google Maps API Key
+- Database keys
+
+---
+
+### 🎯 FINAL GOAL
+A production-ready travel booking website where:
+- Users explore destinations on map
+- Build itinerary
+- Book private driver Quốc Sách
+- See estimated price
+- Contact easily
+- Switch between English, Vietnamese, Korean
+
+Make the UI visually appealing and modern.
+Generate full working code.

@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Quốc Sách Driver"
+version = "1.0.0"
+id = "artifacts/quoc-sach-driver"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18893
+
+[services.development]
+run = "pnpm --filter @workspace/quoc-sach-driver run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/quoc-sach-driver", "run", "build" ]
+publicDir = "artifacts/quoc-sach-driver/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18893"
+BASE_PATH = "/"
