@@ -1,0 +1,282 @@
+import { db, locationsTable, reviewsTable, type NewLocationRow, type NewReviewRow } from "@workspace/db";
+
+const locations: NewLocationRow[] = [
+  // Da Nang
+  {
+    id: "marble-mountains",
+    slug: "marble-mountains",
+    city: "da-nang",
+    category: "mountain",
+    nameEn: "Marble Mountains",
+    nameVi: "Ngũ Hành Sơn",
+    nameKo: "오행산",
+    descriptionEn: "Five limestone hills riddled with sacred caves, pagodas, and panoramic viewpoints over the coast.",
+    descriptionVi: "Quần thể năm ngọn núi đá vôi với hang động linh thiêng, chùa cổ và tầm nhìn ra biển.",
+    descriptionKo: "신성한 동굴, 사찰, 해안의 전망을 감상할 수 있는 다섯 개의 석회암 봉우리.",
+    imageUrl: "/destinations/marble-mountains.png",
+    lat: 16.0030,
+    lng: 108.2628,
+    featured: true,
+    durationMinutes: 120,
+  },
+  {
+    id: "my-khe-beach",
+    slug: "my-khe-beach",
+    city: "da-nang",
+    category: "beach",
+    nameEn: "My Khe Beach",
+    nameVi: "Bãi biển Mỹ Khê",
+    nameKo: "미케 비치",
+    descriptionEn: "A long stretch of soft white sand and gentle surf — one of Vietnam's most beloved beaches.",
+    descriptionVi: "Bãi cát trắng mịn trải dài với sóng êm — một trong những bãi biển đẹp nhất Việt Nam.",
+    descriptionKo: "부드러운 백사장이 길게 펼쳐진 베트남에서 가장 사랑받는 해변 중 하나.",
+    imageUrl: "/destinations/my-khe-beach.png",
+    lat: 16.0606,
+    lng: 108.2483,
+    featured: true,
+    durationMinutes: 90,
+  },
+  {
+    id: "dragon-bridge",
+    slug: "dragon-bridge",
+    city: "da-nang",
+    category: "landmark",
+    nameEn: "Dragon Bridge",
+    nameVi: "Cầu Rồng",
+    nameKo: "용교",
+    descriptionEn: "A 666-meter dragon-shaped bridge that breathes fire and water on weekend evenings.",
+    descriptionVi: "Cây cầu hình rồng dài 666m phun lửa và nước mỗi tối cuối tuần.",
+    descriptionKo: "주말 저녁마다 불과 물을 뿜어내는 666m 길이의 용 모양 다리.",
+    imageUrl: "/destinations/dragon-bridge.png",
+    lat: 16.0614,
+    lng: 108.2275,
+    featured: false,
+    durationMinutes: 45,
+  },
+  {
+    id: "ba-na-hills",
+    slug: "ba-na-hills",
+    city: "da-nang",
+    category: "mountain",
+    nameEn: "Ba Na Hills & Golden Bridge",
+    nameVi: "Bà Nà Hills & Cầu Vàng",
+    nameKo: "바나힐 & 골든브릿지",
+    descriptionEn: "A mountaintop resort reached by one of the world's longest cable cars, home to the iconic Golden Bridge.",
+    descriptionVi: "Khu nghỉ dưỡng trên đỉnh núi với cáp treo dài bậc nhất thế giới và Cầu Vàng nổi tiếng.",
+    descriptionKo: "세계에서 가장 긴 케이블카로 오르는 산 정상 리조트와 상징적인 골든브릿지.",
+    imageUrl: "/destinations/ba-na-hills.png",
+    lat: 15.9977,
+    lng: 107.9883,
+    featured: true,
+    durationMinutes: 360,
+  },
+  {
+    id: "hai-van-pass",
+    slug: "hai-van-pass",
+    city: "da-nang",
+    category: "landmark",
+    nameEn: "Hai Van Pass",
+    nameVi: "Đèo Hải Vân",
+    nameKo: "하이반 고개",
+    descriptionEn: "A breathtaking coastal mountain pass connecting Da Nang and Hue — one of Asia's great drives.",
+    descriptionVi: "Đèo núi ven biển ngoạn mục nối Đà Nẵng và Huế — một trong những cung đường đẹp nhất châu Á.",
+    descriptionKo: "다낭과 후에를 잇는 숨막히는 해안 산악 도로 — 아시아 최고의 드라이브 코스.",
+    imageUrl: "/destinations/hai-van-pass.jpg",
+    lat: 16.1980,
+    lng: 108.1465,
+    featured: false,
+    durationMinutes: 90,
+  },
+  // Hoi An
+  {
+    id: "hoi-an-ancient-town",
+    slug: "hoi-an-ancient-town",
+    city: "hoi-an",
+    category: "heritage",
+    nameEn: "Hoi An Ancient Town",
+    nameVi: "Phố cổ Hội An",
+    nameKo: "호이안 구시가지",
+    descriptionEn: "A UNESCO-listed riverside town glowing with thousands of silk lanterns at dusk.",
+    descriptionVi: "Phố cổ ven sông được UNESCO công nhận, rực rỡ hàng nghìn chiếc đèn lồng lúc hoàng hôn.",
+    descriptionKo: "수천 개의 실크 등불로 빛나는 유네스코 지정 강변 마을.",
+    imageUrl: "/destinations/hoi-an-ancient-town.png",
+    lat: 15.8801,
+    lng: 108.3380,
+    featured: true,
+    durationMinutes: 240,
+  },
+  {
+    id: "japanese-bridge",
+    slug: "japanese-bridge",
+    city: "hoi-an",
+    category: "heritage",
+    nameEn: "Japanese Covered Bridge",
+    nameVi: "Chùa Cầu Nhật Bản",
+    nameKo: "일본 다리",
+    descriptionEn: "A 400-year-old wooden bridge built by Hoi An's Japanese merchant community — the town's symbol.",
+    descriptionVi: "Cây cầu gỗ 400 năm tuổi do cộng đồng thương nhân Nhật Bản xây dựng — biểu tượng phố Hội.",
+    descriptionKo: "호이안의 일본 상인들이 지은 400년 된 목조 다리 — 마을의 상징.",
+    imageUrl: "/destinations/japanese-bridge.png",
+    lat: 15.8772,
+    lng: 108.3265,
+    featured: false,
+    durationMinutes: 30,
+  },
+  {
+    id: "an-bang-beach",
+    slug: "an-bang-beach",
+    city: "hoi-an",
+    category: "beach",
+    nameEn: "An Bang Beach",
+    nameVi: "Biển An Bàng",
+    nameKo: "안방 비치",
+    descriptionEn: "A quieter palm-lined beach a short drive from Hoi An, perfect for sunset and seafood.",
+    descriptionVi: "Bãi biển yên tĩnh rợp bóng dừa cách Hội An không xa — lý tưởng cho hoàng hôn và hải sản.",
+    descriptionKo: "호이안에서 가까운 야자수 우거진 조용한 해변 — 일몰과 해산물에 완벽.",
+    imageUrl: "/destinations/an-bang-beach.png",
+    lat: 15.9128,
+    lng: 108.3411,
+    featured: false,
+    durationMinutes: 120,
+  },
+  {
+    id: "tra-que-village",
+    slug: "tra-que-village",
+    city: "hoi-an",
+    category: "village",
+    nameEn: "Tra Que Herb Village",
+    nameVi: "Làng rau Trà Quế",
+    nameKo: "짜꿰 허브 마을",
+    descriptionEn: "Centuries-old organic herb gardens where farmers welcome visitors to plant, harvest, and cook.",
+    descriptionVi: "Vườn rau hữu cơ hàng trăm năm tuổi — người dân mời khách cùng trồng, gặt và nấu ăn.",
+    descriptionKo: "수백 년 된 유기농 허브 농원 — 농부들이 방문객을 초대해 심고, 수확하고, 요리합니다.",
+    imageUrl: "/destinations/tra-que-village.png",
+    lat: 15.9000,
+    lng: 108.3267,
+    featured: true,
+    durationMinutes: 180,
+  },
+  // Hue
+  {
+    id: "imperial-city",
+    slug: "imperial-city",
+    city: "hue",
+    category: "heritage",
+    nameEn: "Hue Imperial City",
+    nameVi: "Đại Nội Huế",
+    nameKo: "후에 왕궁",
+    descriptionEn: "The walled citadel of Vietnam's last imperial dynasty — gates, palaces, and ancestral temples.",
+    descriptionVi: "Kinh thành của triều đại phong kiến cuối cùng — cổng thành, cung điện và tôn miếu.",
+    descriptionKo: "베트남 마지막 왕조의 성곽 도시 — 성문, 궁전, 조상 사당.",
+    imageUrl: "/destinations/imperial-city.png",
+    lat: 16.4698,
+    lng: 107.5783,
+    featured: true,
+    durationMinutes: 240,
+  },
+  {
+    id: "thien-mu-pagoda",
+    slug: "thien-mu-pagoda",
+    city: "hue",
+    category: "temple",
+    nameEn: "Thien Mu Pagoda",
+    nameVi: "Chùa Thiên Mụ",
+    nameKo: "티엔무 사원",
+    descriptionEn: "A seven-tier pagoda perched on a hill above the Perfume River — Hue's spiritual icon.",
+    descriptionVi: "Ngôi chùa bảy tầng bên dòng sông Hương — biểu tượng tâm linh của Huế.",
+    descriptionKo: "향강 위 언덕에 자리한 7층 탑 — 후에의 영적 상징.",
+    imageUrl: "/destinations/thien-mu-pagoda.png",
+    lat: 16.4530,
+    lng: 107.5450,
+    featured: false,
+    durationMinutes: 90,
+  },
+  {
+    id: "khai-dinh-tomb",
+    slug: "khai-dinh-tomb",
+    city: "hue",
+    category: "heritage",
+    nameEn: "Tomb of Khai Dinh",
+    nameVi: "Lăng Khải Định",
+    nameKo: "카이딘 황릉",
+    descriptionEn: "A dramatic hillside mausoleum blending Vietnamese, French, and Chinese influences in stone and glass.",
+    descriptionVi: "Lăng tẩm uy nghi kết hợp kiến trúc Việt, Pháp, Hoa từ đá và mảnh sành.",
+    descriptionKo: "베트남, 프랑스, 중국의 영향이 어우러진 화려한 언덕 위 황릉.",
+    imageUrl: "/destinations/khai-dinh-tomb.jpg",
+    lat: 16.3953,
+    lng: 107.5750,
+    featured: false,
+    durationMinutes: 90,
+  },
+];
+
+const reviews: NewReviewRow[] = [
+  {
+    author: "Sarah M.",
+    country: "Australia",
+    rating: 5,
+    title: "Made our trip unforgettable",
+    body: "Quốc Sách is patient, kind, and knows every back road. He turned a long drive between Hue and Hoi An into the highlight of our trip.",
+  },
+  {
+    author: "Min-jun K.",
+    country: "South Korea",
+    rating: 5,
+    title: "최고의 가이드",
+    body: "한국어를 조금 할 수 있어 정말 편했어요. 호이안 야시장과 다낭 해변을 알차게 안내해 주셨습니다.",
+  },
+  {
+    author: "Daniel R.",
+    country: "Germany",
+    rating: 5,
+    title: "Reliable and friendly",
+    body: "On time every morning, immaculate car, and great recommendations for local food. We will absolutely book again.",
+  },
+  {
+    author: "Linh P.",
+    country: "Vietnam",
+    rating: 5,
+    title: "Anh tài thân thiện",
+    body: "Anh Quốc Sách lái xe an toàn, nhiệt tình giới thiệu nhiều địa điểm thú vị ở Huế. Gia đình mình rất hài lòng.",
+  },
+  {
+    author: "Emma L.",
+    country: "United Kingdom",
+    rating: 5,
+    title: "Felt like family",
+    body: "We had three small children and Quốc Sách was incredibly accommodating. He even brought extra water and snacks.",
+  },
+];
+
+async function main() {
+  console.log("Seeding locations...");
+  await Promise.all(
+    locations.map((loc) =>
+      // upsert via insert + onConflictDoUpdate
+      import("@workspace/db").then(({ db, locationsTable }) =>
+        db
+          .insert(locationsTable)
+          .values(loc)
+          .onConflictDoUpdate({
+            target: locationsTable.id,
+            set: loc,
+          }),
+      ),
+    ),
+  );
+
+  console.log("Seeding reviews...");
+  // Only insert reviews if none exist
+  const existing = await db.select().from(reviewsTable).limit(1);
+  if (existing.length === 0) {
+    await db.insert(reviewsTable).values(reviews);
+  }
+
+  console.log("Done.");
+  process.exit(0);
+}
+
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

@@ -3,20 +3,29 @@ info:
   # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: API specification for Quoc Sach Driver booking site
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: locations
+    description: Tourist locations in Da Nang, Hue, Hoi An
+  - name: bookings
+    description: Booking management
+  - name: pricing
+    description: Pricing estimation
+  - name: reviews
+    description: Customer reviews
+  - name: stats
+    description: Admin statistics
 paths:
   /healthz:
     get:
       operationId: healthCheck
       tags: [health]
       summary: Health check
-      description: Returns server health status
       responses:
         "200":
           description: Healthy
@@ -24,6 +33,206 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /locations:
+    get:
+      operationId: listLocations
+      tags: [locations]
+      summary: List all tourist locations
+      parameters:
+        - in: query
+          name: city
+          schema:
+            type: string
+            enum: [da-nang, hue, hoi-an]
+          required: false
+      responses:
+        "200":
+          description: List of locations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Location"
+
+  /locations/{id}:
+    get:
+      operationId: getLocation
+      tags: [locations]
+      summary: Get a single location
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Location detail
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Location"
+
+  /locations/featured:
+    get:
+      operationId: listFeaturedLocations
+      tags: [locations]
+      summary: Featured destinations for the homepage
+      responses:
+        "200":
+          description: Featured locations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Location"
+
+  /pricing/estimate:
+    post:
+      operationId: estimatePrice
+      tags: [pricing]
+      summary: Calculate estimated trip price
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PriceEstimateRequest"
+      responses:
+        "200":
+          description: Price estimate
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PriceEstimate"
+
+  /pricing/rates:
+    get:
+      operationId: getPricingRates
+      tags: [pricing]
+      summary: Get current rate card (per-day base + city surcharges)
+      responses:
+        "200":
+          description: Rate card
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RateCard"
+
+  /bookings:
+    get:
+      operationId: listBookings
+      tags: [bookings]
+      summary: List all bookings (admin)
+      parameters:
+        - in: query
+          name: status
+          schema:
+            type: string
+            enum: [pending, confirmed, completed, cancelled]
+          required: false
+      responses:
+        "200":
+          description: Bookings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Booking"
+    post:
+      operationId: createBooking
+      tags: [bookings]
+      summary: Create a new booking
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BookingInput"
+      responses:
+        "201":
+          description: Booking created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Booking"
+
+  /bookings/{id}:
+    get:
+      operationId: getBooking
+      tags: [bookings]
+      summary: Get a booking by id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Booking detail
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Booking"
+
+  /bookings/{id}/status:
+    patch:
+      operationId: updateBookingStatus
+      tags: [bookings]
+      summary: Update booking status (admin)
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BookingStatusPatch"
+      responses:
+        "200":
+          description: Updated booking
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Booking"
+
+  /reviews:
+    get:
+      operationId: listReviews
+      tags: [reviews]
+      summary: List published customer reviews
+      responses:
+        "200":
+          description: Reviews
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Review"
+
+  /stats/summary:
+    get:
+      operationId: getAdminSummary
+      tags: [stats]
+      summary: Admin dashboard summary (totals, statuses, recent revenue)
+      responses:
+        "200":
+          description: Summary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminSummary"
+
 components:
   schemas:
     HealthStatus:
@@ -31,6 +240,342 @@ components:
       properties:
         status:
           type: string
-      required:
-        - status
+      required: [status]
 
+    City:
+      type: string
+      enum: [da-nang, hue, hoi-an]
+
+    LocationCategory:
+      type: string
+      enum: [beach, heritage, temple, mountain, food, village, landmark, museum]
+
+    Location:
+      type: object
+      properties:
+        id:
+          type: string
+        slug:
+          type: string
+        city:
+          $ref: "#/components/schemas/City"
+        category:
+          $ref: "#/components/schemas/LocationCategory"
+        nameEn:
+          type: string
+        nameVi:
+          type: string
+        nameKo:
+          type: string
+        descriptionEn:
+          type: string
+        descriptionVi:
+          type: string
+        descriptionKo:
+          type: string
+        imageUrl:
+          type: string
+        lat:
+          type: number
+        lng:
+          type: number
+        featured:
+          type: boolean
+        durationMinutes:
+          type: integer
+          description: Suggested visit duration in minutes
+      required:
+        - id
+        - slug
+        - city
+        - category
+        - nameEn
+        - nameVi
+        - nameKo
+        - descriptionEn
+        - descriptionVi
+        - descriptionKo
+        - imageUrl
+        - lat
+        - lng
+        - featured
+        - durationMinutes
+
+    RateCard:
+      type: object
+      properties:
+        baseDailyPriceUsd:
+          type: number
+          description: Base price per day for the driver service in USD
+        currency:
+          type: string
+        citySurcharges:
+          type: array
+          items:
+            type: object
+            properties:
+              city:
+                $ref: "#/components/schemas/City"
+              surchargeUsd:
+                type: number
+            required: [city, surchargeUsd]
+        extraPersonFeeUsd:
+          type: number
+          description: Fee per person beyond the first 4
+        extraPersonThreshold:
+          type: integer
+          description: People threshold above which the per-person fee applies
+      required:
+        - baseDailyPriceUsd
+        - currency
+        - citySurcharges
+        - extraPersonFeeUsd
+        - extraPersonThreshold
+
+    PriceEstimateRequest:
+      type: object
+      properties:
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        peopleCount:
+          type: integer
+          minimum: 1
+        cities:
+          type: array
+          items:
+            $ref: "#/components/schemas/City"
+      required: [startDate, endDate, peopleCount, cities]
+
+    PriceLineItem:
+      type: object
+      properties:
+        label:
+          type: string
+        amountUsd:
+          type: number
+      required: [label, amountUsd]
+
+    PriceEstimate:
+      type: object
+      properties:
+        days:
+          type: integer
+        peopleCount:
+          type: integer
+        baseTotalUsd:
+          type: number
+        cityTotalUsd:
+          type: number
+        peopleTotalUsd:
+          type: number
+        totalUsd:
+          type: number
+        currency:
+          type: string
+        lineItems:
+          type: array
+          items:
+            $ref: "#/components/schemas/PriceLineItem"
+      required:
+        - days
+        - peopleCount
+        - baseTotalUsd
+        - cityTotalUsd
+        - peopleTotalUsd
+        - totalUsd
+        - currency
+        - lineItems
+
+    ItineraryStop:
+      type: object
+      properties:
+        locationId:
+          type: string
+        order:
+          type: integer
+      required: [locationId, order]
+
+    ItineraryDay:
+      type: object
+      properties:
+        day:
+          type: integer
+        stops:
+          type: array
+          items:
+            $ref: "#/components/schemas/ItineraryStop"
+      required: [day, stops]
+
+    BookingStatus:
+      type: string
+      enum: [pending, confirmed, completed, cancelled]
+
+    Booking:
+      type: object
+      properties:
+        id:
+          type: string
+        customerName:
+          type: string
+        customerEmail:
+          type: string
+        customerPhone:
+          type: string
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        peopleCount:
+          type: integer
+        cities:
+          type: array
+          items:
+            $ref: "#/components/schemas/City"
+        itinerary:
+          type: array
+          items:
+            $ref: "#/components/schemas/ItineraryDay"
+        message:
+          type: string
+        totalUsd:
+          type: number
+        status:
+          $ref: "#/components/schemas/BookingStatus"
+        language:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - customerName
+        - customerEmail
+        - customerPhone
+        - startDate
+        - endDate
+        - peopleCount
+        - cities
+        - itinerary
+        - totalUsd
+        - status
+        - createdAt
+
+    BookingInput:
+      type: object
+      properties:
+        customerName:
+          type: string
+          minLength: 1
+        customerEmail:
+          type: string
+          format: email
+        customerPhone:
+          type: string
+          minLength: 1
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        peopleCount:
+          type: integer
+          minimum: 1
+        cities:
+          type: array
+          items:
+            $ref: "#/components/schemas/City"
+        itinerary:
+          type: array
+          items:
+            $ref: "#/components/schemas/ItineraryDay"
+        message:
+          type: string
+        language:
+          type: string
+      required:
+        - customerName
+        - customerEmail
+        - customerPhone
+        - startDate
+        - endDate
+        - peopleCount
+        - cities
+        - itinerary
+
+    BookingStatusPatch:
+      type: object
+      properties:
+        status:
+          $ref: "#/components/schemas/BookingStatus"
+      required: [status]
+
+    Review:
+      type: object
+      properties:
+        id:
+          type: string
+        author:
+          type: string
+        country:
+          type: string
+        rating:
+          type: integer
+        title:
+          type: string
+        body:
+          type: string
+        avatarUrl:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+      required: [id, author, country, rating, title, body, createdAt]
+
+    StatusCount:
+      type: object
+      properties:
+        status:
+          $ref: "#/components/schemas/BookingStatus"
+        count:
+          type: integer
+      required: [status, count]
+
+    AdminSummary:
+      type: object
+      properties:
+        totalBookings:
+          type: integer
+        pendingBookings:
+          type: integer
+        confirmedBookings:
+          type: integer
+        completedBookings:
+          type: integer
+        upcomingTrips:
+          type: integer
+        totalRevenueUsd:
+          type: number
+        recentBookings:
+          type: array
+          items:
+            $ref: "#/components/schemas/Booking"
+        statusBreakdown:
+          type: array
+          items:
+            $ref: "#/components/schemas/StatusCount"
+      required:
+        - totalBookings
+        - pendingBookings
+        - confirmedBookings
+        - completedBookings
+        - upcomingTrips
+        - totalRevenueUsd
+        - recentBookings
+        - statusBreakdown

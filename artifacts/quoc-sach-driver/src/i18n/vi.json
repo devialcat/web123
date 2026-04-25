@@ -1,0 +1,89 @@
+{
+  "nav": {
+    "home": "Trang chủ",
+    "destinations": "Điểm đến",
+    "map": "Bản đồ",
+    "tourBuilder": "Lên lịch trình",
+    "contact": "Liên hệ"
+  },
+  "home": {
+    "heroTitle": "Hành trình khám phá Miền Trung",
+    "heroSubtitle": "Tài xế riêng và hướng dẫn viên địa phương tại Đà Nẵng, Huế và Hội An. Trải nghiệm sự ấm áp chân thực của Việt Nam theo nhịp độ của riêng bạn.",
+    "bookNow": "Đặt chuyến đi",
+    "buildTour": "Lịch trình tự chọn",
+    "featuredDestinations": "Điểm đến nổi bật",
+    "viewAll": "Xem tất cả",
+    "whyChooseUs": "Vì sao chọn Quốc Sách",
+    "why1Title": "Chuyên gia địa phương",
+    "why1Desc": "Sinh ra và lớn lên ở miền Trung, đưa bạn đến những viên ngọc ẩn giấu và những trải nghiệm chân thực.",
+    "why2Title": "Tiện nghi & An toàn",
+    "why2Desc": "Xe hiện đại, có máy lạnh và lái xe cẩn thận trên những cung đường đèo.",
+    "why3Title": "Lịch trình linh hoạt",
+    "why3Desc": "Chuyến đi của bạn, nhịp độ của bạn. Chúng tôi điều chỉnh lịch trình dựa trên những gì bạn muốn xem.",
+    "reviews": "Đánh giá của du khách"
+  },
+  "destinations": {
+    "title": "Khám phá điểm đến",
+    "allCities": "Tất cả thành phố",
+    "allCategories": "Tất cả danh mục",
+    "addToItinerary": "Thêm vào lịch trình",
+    "added": "Đã thêm"
+  },
+  "map": {
+    "title": "Bản đồ tương tác",
+    "subtitle": "Khám phá các địa điểm trên khắp Đà Nẵng, Huế và Hội An"
+  },
+  "tourBuilder": {
+    "title": "Xây dựng lịch trình của bạn",
+    "step1": "1. Chi tiết chuyến đi",
+    "step2": "2. Chọn địa điểm",
+    "step3": "3. Sắp xếp theo ngày",
+    "dates": "Ngày đi",
+    "people": "Số người",
+    "search": "Tìm địa điểm...",
+    "selectedStops": "Các điểm đã chọn",
+    "day": "Ngày",
+    "unassigned": "Điểm chưa sắp xếp",
+    "priceEstimate": "Ước tính giá",
+    "basePrice": "Giá cơ bản",
+    "citySurcharge": "Phụ phí thành phố",
+    "extraPersonFee": "Phụ phí thêm người",
+    "total": "Tổng ước tính",
+    "continueToBooking": "Tiếp tục đặt xe"
+  },
+  "booking": {
+    "title": "Hoàn tất đặt xe",
+    "personalInfo": "Thông tin cá nhân",
+    "name": "Họ và tên",
+    "email": "Địa chỉ Email",
+    "phone": "Số điện thoại (WhatsApp/Zalo)",
+    "message": "Yêu cầu đặc biệt / Lời nhắn",
+    "submit": "Xác nhận đặt xe",
+    "successTitle": "Đặt xe thành công!",
+    "successMessage": "Cảm ơn bạn đã chọn Quốc Sách Driver. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất để chốt chi tiết.",
+    "bookingId": "Mã đặt xe"
+  },
+  "contact": {
+    "title": "Liên hệ",
+    "subtitle": "Liên hệ trực tiếp trên nền tảng ưa thích của bạn",
+    "zalo": "Chat qua Zalo",
+    "kakao": "Chat qua KakaoTalk",
+    "facebook": "Nhắn tin qua Facebook",
+    "email": "Gửi Email"
+  },
+  "admin": {
+    "dashboard": "Bảng điều khiển Admin",
+    "totalBookings": "Tổng số đặt xe",
+    "pending": "Chờ duyệt",
+    "confirmed": "Đã xác nhận",
+    "completed": "Đã hoàn thành",
+    "cancelled": "Đã hủy",
+    "upcoming": "Chuyến đi sắp tới",
+    "revenue": "Tổng doanh thu",
+    "recentBookings": "Đặt xe gần đây",
+    "status": "Trạng thái",
+    "customer": "Khách hàng",
+    "dates": "Ngày",
+    "action": "Hành động"
+  }
+}

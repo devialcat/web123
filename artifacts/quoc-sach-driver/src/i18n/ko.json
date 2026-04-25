@@ -1,0 +1,89 @@
+{
+  "nav": {
+    "home": "홈",
+    "destinations": "목적지",
+    "map": "지도",
+    "tourBuilder": "일정 만들기",
+    "contact": "연락처"
+  },
+  "home": {
+    "heroTitle": "중부 베트남 여행",
+    "heroSubtitle": "다낭, 후에, 호이안을 위한 프라이빗 드라이버 및 현지 가이드. 베트남의 진정한 따뜻함을 당신만의 속도로 경험하세요.",
+    "bookNow": "여행 예약하기",
+    "buildTour": "맞춤형 일정",
+    "featuredDestinations": "추천 목적지",
+    "viewAll": "모두 보기",
+    "whyChooseUs": "Quốc Sách을 선택해야 하는 이유",
+    "why1Title": "현지 전문가",
+    "why1Desc": "중부 베트남에서 태어나고 자랐으며, 숨겨진 명소와 진정한 경험을 선사합니다.",
+    "why2Title": "편안함 및 안전",
+    "why2Desc": "에어컨이 완비된 최신 차량과 산길에서의 안전한 운전.",
+    "why3Title": "유연한 일정",
+    "why3Desc": "당신의 여행, 당신의 속도. 보고 싶은 것에 맞춰 일정을 조정합니다.",
+    "reviews": "여행자 리뷰"
+  },
+  "destinations": {
+    "title": "목적지 탐색",
+    "allCities": "모든 도시",
+    "allCategories": "모든 카테고리",
+    "addToItinerary": "일정에 추가",
+    "added": "일정에 추가됨"
+  },
+  "map": {
+    "title": "인터랙티브 지도",
+    "subtitle": "다낭, 후에, 호이안 전역의 명소 발견"
+  },
+  "tourBuilder": {
+    "title": "일정 만들기",
+    "step1": "1. 여행 세부 정보",
+    "step2": "2. 장소 선택",
+    "step3": "3. 일별 정리",
+    "dates": "날짜",
+    "people": "인원 수",
+    "search": "장소 검색...",
+    "selectedStops": "선택된 목적지",
+    "day": "일",
+    "unassigned": "미지정 목적지",
+    "priceEstimate": "예상 가격",
+    "basePrice": "기본 가격",
+    "citySurcharge": "도시 추가 요금",
+    "extraPersonFee": "추가 인원 요금",
+    "total": "총 예상 금액",
+    "continueToBooking": "예약으로 계속"
+  },
+  "booking": {
+    "title": "예약 완료",
+    "personalInfo": "개인 정보",
+    "name": "성명",
+    "email": "이메일 주소",
+    "phone": "전화번호 (WhatsApp/Zalo)",
+    "message": "특별 요청 / 메시지",
+    "submit": "예약 확인",
+    "successTitle": "예약 확인됨!",
+    "successMessage": "Quốc Sách Driver를 선택해 주셔서 감사합니다. 세부 사항을 확정하기 위해 곧 연락드리겠습니다.",
+    "bookingId": "예약 ID"
+  },
+  "contact": {
+    "title": "연락하기",
+    "subtitle": "선호하는 플랫폼으로 직접 연락하세요",
+    "zalo": "Zalo로 채팅",
+    "kakao": "KakaoTalk으로 채팅",
+    "facebook": "Facebook 메시지",
+    "email": "이메일 보내기"
+  },
+  "admin": {
+    "dashboard": "관리자 대시보드",
+    "totalBookings": "총 예약 수",
+    "pending": "대기 중",
+    "confirmed": "확인됨",
+    "completed": "완료됨",
+    "cancelled": "취소됨",
+    "upcoming": "예정된 여행",
+    "revenue": "총 수익",
+    "recentBookings": "최근 예약",
+    "status": "상태",
+    "customer": "고객",
+    "dates": "날짜",
+    "action": "작업"
+  }
+}

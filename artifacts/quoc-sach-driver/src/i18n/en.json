@@ -1,0 +1,89 @@
+{
+  "nav": {
+    "home": "Home",
+    "destinations": "Destinations",
+    "map": "Map",
+    "tourBuilder": "Build Itinerary",
+    "contact": "Contact"
+  },
+  "home": {
+    "heroTitle": "Your Journey Through Central Vietnam",
+    "heroSubtitle": "Private driver and local guide for Da Nang, Hue, and Hoi An. Experience the authentic warmth of Vietnam at your own pace.",
+    "bookNow": "Book Your Trip",
+    "buildTour": "Custom Itinerary",
+    "featuredDestinations": "Featured Destinations",
+    "viewAll": "View All",
+    "whyChooseUs": "Why Choose Quốc Sách",
+    "why1Title": "Local Expert",
+    "why1Desc": "Born and raised in Central Vietnam, bringing you to hidden gems and authentic experiences.",
+    "why2Title": "Comfort & Safety",
+    "why2Desc": "Modern, air-conditioned vehicles and careful driving on mountain passes.",
+    "why3Title": "Flexible Planning",
+    "why3Desc": "Your trip, your pace. We adjust the schedule based on what you want to see.",
+    "reviews": "What Travelers Say"
+  },
+  "destinations": {
+    "title": "Explore Destinations",
+    "allCities": "All Cities",
+    "allCategories": "All Categories",
+    "addToItinerary": "Add to Itinerary",
+    "added": "Added to Itinerary"
+  },
+  "map": {
+    "title": "Interactive Map",
+    "subtitle": "Discover sites across Da Nang, Hue, and Hoi An"
+  },
+  "tourBuilder": {
+    "title": "Build Your Itinerary",
+    "step1": "1. Trip Details",
+    "step2": "2. Select Locations",
+    "step3": "3. Arrange by Day",
+    "dates": "Dates",
+    "people": "Number of People",
+    "search": "Search locations...",
+    "selectedStops": "Selected Stops",
+    "day": "Day",
+    "unassigned": "Unassigned Stops",
+    "priceEstimate": "Price Estimate",
+    "basePrice": "Base Price",
+    "citySurcharge": "City Surcharge",
+    "extraPersonFee": "Extra Person Fee",
+    "total": "Estimated Total",
+    "continueToBooking": "Continue to Booking"
+  },
+  "booking": {
+    "title": "Complete Your Booking",
+    "personalInfo": "Personal Information",
+    "name": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone Number (WhatsApp/Zalo)",
+    "message": "Special Requests / Message",
+    "submit": "Confirm Booking",
+    "successTitle": "Booking Confirmed!",
+    "successMessage": "Thank you for choosing Quốc Sách Driver. We will contact you shortly to finalize the details.",
+    "bookingId": "Booking ID"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Reach out directly on your preferred platform",
+    "zalo": "Chat on Zalo",
+    "kakao": "Chat on KakaoTalk",
+    "facebook": "Message on Facebook",
+    "email": "Send an Email"
+  },
+  "admin": {
+    "dashboard": "Admin Dashboard",
+    "totalBookings": "Total Bookings",
+    "pending": "Pending",
+    "confirmed": "Confirmed",
+    "completed": "Completed",
+    "cancelled": "Cancelled",
+    "upcoming": "Upcoming Trips",
+    "revenue": "Total Revenue",
+    "recentBookings": "Recent Bookings",
+    "status": "Status",
+    "customer": "Customer",
+    "dates": "Dates",
+    "action": "Action"
+  }
+}

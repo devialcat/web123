@@ -1,0 +1,79 @@
+uploads = []
+
+[[generated]]
+id = "5SVCldchkiScUdWtr7Sp0"
+uri = "file://artifacts/quoc-sach-driver/public/hero-danang.png"
+type = "image"
+title = "Coastal road in Da Nang"
+
+[[generated]]
+id = "OD7QpdHvLOJYAX1kozHsZ"
+uri = "file://artifacts/quoc-sach-driver/public/hoian-lanterns.png"
+type = "image"
+title = "Hoi An Lanterns"
+
+[[generated]]
+id = "slbDwMetA4nXAhoZNs_bj"
+uri = "file://attached_assets/seed/marble-mountains.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "PBQ289fz6yQsNZ5GIV-O4"
+uri = "file://attached_assets/seed/my-khe-beach.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "nkZ1bxQJ9rcGDoRNF272v"
+uri = "file://attached_assets/seed/dragon-bridge.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "30dY6eMIImKu_b6TrjGjx"
+uri = "file://attached_assets/seed/ba-na-hills.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "5MKWp6RqaVWFuXVYE82No"
+uri = "file://attached_assets/seed/hoi-an-ancient-town.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "aq3cL0P9WzVlydi6Gn3DQ"
+uri = "file://attached_assets/seed/japanese-bridge.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "XUPQc33SRH0YvD9V1mnad"
+uri = "file://attached_assets/seed/an-bang-beach.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "JItKhAmwemzGJfmXFbgs3"
+uri = "file://attached_assets/seed/tra-que-village.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "9kU9A3fWJm9VLsFQU2oVA"
+uri = "file://attached_assets/seed/imperial-city.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "tfYHlHYkM9f0gAMm0F_FW"
+uri = "file://attached_assets/seed/thien-mu-pagoda.png"
+type = "image"
+title = "generated_image"
+
+[[outputs]]
+id = "jmhhVb-mQMwMvKcYIID83"
+uri = "file://attached_assets/stock_images/stock_image.jpg"
+type = "image"
+title = "winding mountain coastal road Vietnam aerial view sea cliffs"
