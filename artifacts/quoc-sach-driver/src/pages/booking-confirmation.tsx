@@ -169,7 +169,7 @@ export default function BookingConfirmation() {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <a
-              href="https://zalo.me/84905123456"
+              href="https://zalo.me/84905543050"
               target="_blank"
               rel="noreferrer"
               className="flex flex-col items-center gap-2 p-3 rounded-lg border hover:border-primary transition-colors"
@@ -178,7 +178,7 @@ export default function BookingConfirmation() {
               <span className="text-xs">Zalo</span>
             </a>
             <a
-              href="https://open.kakao.com/o/quocsachdriver"
+              href="tel:+84905543050"
               target="_blank"
               rel="noreferrer"
               className="flex flex-col items-center gap-2 p-3 rounded-lg border hover:border-primary transition-colors"
@@ -187,14 +187,14 @@ export default function BookingConfirmation() {
               <span className="text-xs">KakaoTalk</span>
             </a>
             <a
-              href="mailto:quocsachdriver@gmail.com"
+              href="mailto:tranquocsach1992@gmail.com"
               className="flex flex-col items-center gap-2 p-3 rounded-lg border hover:border-primary transition-colors"
             >
               <SiGmail className="h-6 w-6 text-[#EA4335]" />
               <span className="text-xs">Email</span>
             </a>
             <a
-              href="https://facebook.com/quocsachdriver"
+              href="https://facebook.com/tranquocsach1992"
               target="_blank"
               rel="noreferrer"
               className="flex flex-col items-center gap-2 p-3 rounded-lg border hover:border-primary transition-colors"

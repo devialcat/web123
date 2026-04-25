@@ -30,16 +30,16 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Connect</h4>
             <div className="flex gap-4">
-              <a href="https://zalo.me/84905123456" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-[#0068FF] transition-colors">
+              <a href="https://zalo.me/84905543050" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-[#0068FF] transition-colors">
                 <SiZalo className="h-5 w-5" />
               </a>
-              <a href="https://open.kakao.com/o/quocsachdriver" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-[#FEE500] transition-colors">
+              <a href="tel:+84905543050" className="text-muted-foreground hover:text-[#FEE500] transition-colors">
                 <SiKakaotalk className="h-5 w-5" />
               </a>
-              <a href="mailto:quocsachdriver@gmail.com" className="text-muted-foreground hover:text-[#EA4335] transition-colors">
+              <a href="mailto:tranquocsach1992@gmail.com" className="text-muted-foreground hover:text-[#EA4335] transition-colors">
                 <SiGmail className="h-5 w-5" />
               </a>
-              <a href="https://facebook.com/quocsachdriver" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-[#1877F2] transition-colors">
+              <a href="https://facebook.com/tranquocsach1992" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-[#1877F2] transition-colors">
                 <SiFacebook className="h-5 w-5" />
               </a>
             </div>

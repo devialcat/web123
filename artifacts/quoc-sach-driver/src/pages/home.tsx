@@ -179,7 +179,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <a
-              href="https://zalo.me/84905123456"
+              href="https://zalo.me/84905543050"
               target="_blank"
               rel="noreferrer"
               className="flex flex-col items-center gap-3 p-6 rounded-xl bg-card border hover:border-primary transition-all hover:-translate-y-0.5"
@@ -189,7 +189,7 @@ export default function Home() {
               <span className="text-sm font-medium">{t("contact.zalo")}</span>
             </a>
             <a
-              href="https://open.kakao.com/o/quocsachdriver"
+              href="tel:+84905543050"
               target="_blank"
               rel="noreferrer"
               className="flex flex-col items-center gap-3 p-6 rounded-xl bg-card border hover:border-primary transition-all hover:-translate-y-0.5"
@@ -199,7 +199,7 @@ export default function Home() {
               <span className="text-sm font-medium">{t("contact.kakao")}</span>
             </a>
             <a
-              href="mailto:quocsachdriver@gmail.com"
+              href="mailto:tranquocsach1992@gmail.com"
               className="flex flex-col items-center gap-3 p-6 rounded-xl bg-card border hover:border-primary transition-all hover:-translate-y-0.5"
               data-testid="link-home-email"
             >
@@ -207,7 +207,7 @@ export default function Home() {
               <span className="text-sm font-medium">{t("contact.email")}</span>
             </a>
             <a
-              href="https://facebook.com/quocsachdriver"
+              href="https://facebook.com/tranquocsach1992"
               target="_blank"
               rel="noreferrer"
               className="flex flex-col items-center gap-3 p-6 rounded-xl bg-card border hover:border-primary transition-all hover:-translate-y-0.5"

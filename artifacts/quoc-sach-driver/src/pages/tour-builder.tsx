@@ -215,7 +215,7 @@ export default function TourBuilder() {
                   <div>
                     <Label htmlFor="start-date" className="mb-2 block">
                       <CalendarIcon className="inline h-4 w-4 mr-1" />
-                      {t("tourBuilder.dates")} (Start)
+                      {t("tourBuilder.startDate")}
                     </Label>
                     <Input
                       id="start-date"
@@ -230,7 +230,7 @@ export default function TourBuilder() {
                   <div>
                     <Label htmlFor="end-date" className="mb-2 block">
                       <CalendarIcon className="inline h-4 w-4 mr-1" />
-                      {t("tourBuilder.dates")} (End)
+                      {t("tourBuilder.endDate")}
                     </Label>
                     <Input
                       id="end-date"

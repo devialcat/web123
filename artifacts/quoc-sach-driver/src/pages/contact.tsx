@@ -6,31 +6,31 @@ import { Clock, MessageCircle } from "lucide-react";
 const channels = [
   {
     id: "zalo",
-    href: "https://zalo.me/84905123456",
+    href: "https://zalo.me/84905543050",
     icon: SiZalo,
     color: "#0068FF",
-    handle: "+84 90 512 3456",
+    handle: "+84 90 554 3050",
   },
   {
     id: "kakao",
-    href: "https://open.kakao.com/o/quocsachdriver",
+    href: "tel:+84905543050",
     icon: SiKakaotalk,
     color: "#FEE500",
-    handle: "@quocsachdriver",
+    handle: "+84 90 554 3050",
   },
   {
     id: "email",
-    href: "mailto:quocsachdriver@gmail.com",
+    href: "mailto:tranquocsach1992@gmail.com",
     icon: SiGmail,
     color: "#EA4335",
-    handle: "quocsachdriver@gmail.com",
+    handle: "tranquocsach1992@gmail.com",
   },
   {
     id: "facebook",
-    href: "https://facebook.com/quocsachdriver",
+    href: "https://facebook.com/tranquocsach1992",
     icon: SiFacebook,
     color: "#1877F2",
-    handle: "facebook.com/quocsachdriver",
+    handle: "tranquocsach1992@gmail.com",
   },
 ] as const;
 
