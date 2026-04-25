@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { FloatingContact } from "@/components/layout/FloatingContact";
 
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
@@ -38,6 +39,7 @@ function Router() {
         </Switch>
       </main>
       <Footer />
+      <FloatingContact />
     </div>
   );
 }
