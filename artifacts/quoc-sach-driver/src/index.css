@@ -219,6 +219,29 @@
   }
 }
 
+@layer components {
+  .container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container { max-width: 640px; padding-inline: 1.5rem; }
+  }
+  @media (min-width: 768px) {
+    .container { max-width: 768px; padding-inline: 2rem; }
+  }
+  @media (min-width: 1024px) {
+    .container { max-width: 1024px; }
+  }
+  @media (min-width: 1280px) {
+    .container { max-width: 1200px; }
+  }
+  @media (min-width: 1536px) {
+    .container { max-width: 1320px; }
+  }
+}
+
 @layer utilities {
   input[type="search"]::-webkit-search-cancel-button {
     @apply hidden;
