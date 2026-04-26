@@ -8,7 +8,6 @@ cmds = [
 
 [phases.build]
 cmds = [
-  "pnpm --filter @workspace/db push || true",
   "pnpm run build:railway"
 ]
 
